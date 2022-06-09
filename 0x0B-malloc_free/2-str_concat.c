@@ -2,51 +2,38 @@
 #include <stdlib.h>
 
 /**
- * str_concat - A function that concatenates two strings
- * @s1: An input pointer of the first string
- * @s2: An input pointer of the second string
- * Return: Apointer to concatened strings or NULL if it str is NULL
+ * str_concat - concatenate two strings using malloc
+ * @s1: string 1
+ * @s2: string 2
+ * Return: pointer to concat string
  */
+
 char *str_concat(char *s1, char *s2)
 {
-	char *new_str, *starts1, *starts2;
-	int i = 0, lens1 = 0, lens2 = 0;
+	char *a;
+	int i, j, c, d;
 
-	starts1 = s1;
-	starts2 = s2;
 	if (s1 == NULL)
 		s1 = "";
-	while (*s1)
-	{
-		lens1++;
-		s1++;
-	}
-	s1 = starts1;
 	if (s2 == NULL)
 		s2 = "";
-	while (*s2)
-	{
-		lens2++;
-		s2++;
-	}
-	s2 = starts2;
-	new_str = malloc(sizeof(char) * (lens1 + lens2 + 1));
-	starts1 = new_str;
-	if (new_str == NULL)
+
+	for (i = 0; s1[i] != '\0'; i++)
+		;
+	for (j = 0; s2[j] != '\0'; j++)
+		;
+
+	a = malloc((i * sizeof(*s1)) + (j * sizeof(*s2)) + 1);
+	if (a == NULL)
 		return (NULL);
-	for (; i < (lens1 + lens2); i++)
+
+	for (c = 0, d = 0; c < (i + j + 1); c++)
 	{
-		if (i < lens1)
-		{
-			new_str[i] = *s1;
-			s1++;
-		}
+		if (c < i)
+			a[c] = s1[c];
 		else
-		{
-			new_str[i] = *s2;
-			s2++;
-		}
+			a[c] = s2[d++];
 	}
-	new_str[i] = '\0';
-	return (starts1);
+
+	return (a);
 }

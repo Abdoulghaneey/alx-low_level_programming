@@ -1,26 +1,26 @@
-#include "main.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+#include "main.h"
 /**
- * _calloc - A function that allocates memory for an array using malloc
- * @nmemb: number of memory spaces
- * @size: size of nmemb
- * Return: returns pointer to allocated space, or NULL on failure
+ * _calloc - print 0s into 2D grid
+ * @nmemb: array num
+ * @size: size of ea array element
+ * Return: 0
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i = 0;
-	char *space;
+	char *arr;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	space = malloc(nmemb * size);
-	if (space == NULL)
+	arr = malloc(nmemb * size);
+	if (arr == NULL)
 		return (NULL);
 
-	for (; i < nmemb * size; i++)
-		*(space + i) = 0;
+	for (i = 0; i < (nmemb * size); i++)
+		arr[i] = 0;
 
-	return (space);
+	return (arr);
 }

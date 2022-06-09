@@ -1,18 +1,13 @@
-	extern printf
+	global    main
+	          extern    printf
 
-	section .data
-msg:		db "Hello, Holberton", 0
-fmt:		db "%s", 10, 0
+	          section   .text
+main:	push      rbx	; Call stack must be aligned
+	          lea       rdi, [rel message] ; First argument is address of message
+		  call      printf	       ; (message)
+		  xor 	    eax,eax
+		  pop       rbx		       ; Fix up stack before returning
+	          ret
 
-	section .text
-
-	global main
-main:
-	push	rbp
-	mov	rdi,fmt
-	mov	rsi,msg
-	mov	rax,0
-	call	printf
-	pop	rbp
-	mov	rax,0
-	ret
+	          section   .data
+message:	  db        "Hello, Holberton", 10, 0

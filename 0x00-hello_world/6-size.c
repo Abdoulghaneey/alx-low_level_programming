@@ -1,25 +1,22 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
 
 /**
- * main - prints size of types on the computer it is run
- * with a new line
- * Return: 0
+ *main - Entry point
+ *
+ *Return: Always 0 (Success)
  */
 int main(void)
 {
-	int intType;
-	float floatType;
-	long long int doubleType;
-	long int longType;
-	char charType;
+	int a;
+	long int b;
+	long long int c;
+	char d;
+	float f;
 
-	/* sizeof evaluates the size of a variable */
-	printf("Size of a char: %zu byte(s)\n", sizeof(charType));
-	printf("Size of an int: %zu byte(s)\n", sizeof(intType));
-	printf("Size of a long int: %zu byte(s)\n", sizeof(longType));
-	printf("Size of a long long int: %zu byte(s)\n", sizeof(doubleType));
-	printf("Size of a float: %zu byte(s)\n", sizeof(floatType));
-
+	printf("Size of a char: %d byte(s)\n", sizeof(d));
+	printf("Size of an int: %d byte(s)\n", sizeof(a));
+	printf("Size of a long int: %d byte(s)\n", sizeof(b));
+	printf("Size of a long long int: %d byte(s)\n", sizeof(c));
+	printf("Size of a float: %d byte(s)\n", sizeof(f));
 	return (0);
 }
